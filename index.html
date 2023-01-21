@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fancade Search</title>
+    <meta name="description" content="Search through a world of games! Or submit your own?" />
+    <meta name="og:image" content="/img/icon.png" />
+    <meta name="og:url" content="https://search-fancade.vercel.app/" />
+    <meta name="og:title" content="Search through a world of games! Or submit your own?" />
+    <meta
+      name="og:description"
+      content="Fancade search is a huge collection of Fancade games. Search them instantly, or submit your own games!"
+    />
+    <link rel="icon" href="/img/icon.png" />
+    <link rel="stylesheet" href="/lib/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet" />
+    <script async type="text/javascript" src="/lib/index.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <a id="nav-return" href="/"><img src="/img/icon.png" /></a>
+      <h1>Fancade Search</h1>
+      <nav id="navbar"></nav>
+    </header>
+    <main>
+      <section class="search" id="search-section">
+        <h2 class="hidden" id="search"><a href="#search">Search</a></h2>
+        <a id="search-return" href="/"><img src="/img/icon.png" /></a>
+        <div id="search-ctx">
+          <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search Games..." />
+            <a class="button" id="search-btn">🡺</a>
+          </div>
+          <div id="search-tags">
+            <span class="select" data-id="genre">
+              <span class="current">Any Genre</span>
+              <div class="content">
+                <a data-value="">Any Genre</a>
+                <a data-value="action">Action</a>
+                <a data-value="puzzle">Puzzle</a>
+                <a data-value="driving">Driving</a>
+                <a data-value="platformer">Platformer</a>
+                <a data-value="shooter">Shooter</a>
+                <a data-value="strategy">Strategy</a>
+                <a data-value="demo">Demo</a>
+                <a data-value="art">Art </a>
+                <a data-value="music">Music</a>
+              </div>
+            </span>
+            <span class="select" data-id="lvl">
+              <span class="current">Any Levels</span>
+              <div class="content">
+                <a data-value="">Any Levels</a>
+                <a data-value="endless">Endless</a>
+                <a data-value="progress">Progress</a>
+              </div>
+            </span>
+            <span class="select" data-id="cam">
+              <span class="current">Any Camera</span>
+              <div class="content">
+                <a data-value="">Any Camera</a>
+                <a data-value="2d">2d Orthogonal</a>
+                <a data-value="3d">3d Orthogonal</a>
+                <a data-value="fov">Perspective</a>
+              </div>
+            </span>
+            <span class="select" data-id="feature"
+              ><span class="current">Any Features</span>
+              <div class="content">
+                <a data-value="">Any Features</a>
+                <a data-value="shop">Shop</a>
+              </div></span
+            >
+            <span class="select" data-id="by"
+              ><span class="current">Any Author</span>
+              <div class="content">
+                <a data-value="">Any Author</a>
+                <a data-value="martin magnifier">By Martin Magnifier</a>
+                <a data-value="me and the boys">By Me And The Boys</a>
+                <a data-value="yo mom">By Yo Mom</a>
+              </div></span
+            >
+            <span class="select" data-id="sort">
+              <span class="current">Most Relevant</span>
+              <div class="content">
+                <a data-value="relevant">Most Relevant</a>
+                <a data-value="popular">Most Popular</a>
+                <a data-value="most">Most Clicked</a>
+                <a data-value="least">Least Clicked</a>
+                <a data-value="new">Newest</a>
+                <a data-value="old">Oldest</a>
+              </div>
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="blob disabled" id="game-section">
+        <h2 id="game"><a href="#game">Game</a></h2>
+        <a class="card" href="?q=615999797E89CDC8">
+          <img src="/img/games/615999797E89CDC8.webp" loading="lazy" />
+          <div>
+            <div class="title">Snek Left</div>
+            <div class="clicks">39.6K</div>
+            <div class="author">Martin Magni</div>
+            <div class="likes">146</div>
+          </div>
+        </a>
+      </section>
+      <section class="blob disabled" id="search-results-section">
+        <h2 id="search-results"><a href="#search-results">Search Results</a></h2>
+        <a class="card" href="?q=615999797E89CDC8">
+          <img src="/img/games/615999797E89CDC8.webp" loading="lazy" />
+          <div>
+            <div class="title">Snek Left</div>
+            <div class="clicks">39.6K</div>
+            <div class="author">Martin Magni</div>
+            <div class="likes">146</div>
+          </div>
+        </a>
+      </section>
+      <section class="blob" id="highlights-section">
+        <h2 id="highlights"><a href="#highlights">Highlights</a></h2>
+        <a class="card" href="?q=615999797E89CDC8">
+          <img src="/img/games/615999797E89CDC8.webp" loading="lazy" />
+          <div>
+            <div class="title">Snek Left</div>
+            <div class="clicks">39.6K</div>
+            <div class="author">Martin Magni</div>
+            <div class="likes">146</div>
+          </div>
+        </a>
+      </section>
+    </main>
+    <footer>
+      <h2 class="hidden" id="credits">Credits</h2>
+      ©️ 2023 Guffo, Bricked<br />
+      <a class="button" href="http://artcade.rf.gd" target="_blank">Artcade</a>
+      layout by Toxel<br />
+      <a class="button" href="https://fancade.com" target="_blank">Fancade</a>
+      by Martin Magni
+    </footer>
+  </body>
+</html>
