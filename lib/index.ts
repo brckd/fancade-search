@@ -11,13 +11,20 @@ function search() {
   window.location.search = url.search;
 }
 
-document.querySelectorAll("#search-tags > .select").forEach((tag) => {
+document.querySelectorAll<HTMLSpanElement>("#search-tags > .select").forEach((tag) => {
   const id = tag.getAttribute("data-id");
   const curr = tag.querySelector<HTMLSpanElement>(".current");
+  let clickable = false;
+  tag.addEventListener("mouseenter", () => {
+    tag.classList.add("hover");
+    setTimeout(() => (clickable = true));
+  });
+  tag.addEventListener("mouseleave", () => void tag.classList.remove("hover"));
   if (curr)
-    tag.querySelectorAll<HTMLAnchorElement>(".content > a").forEach((a) => {
+    tag.querySelectorAll<HTMLAnchorElement>(".options > a").forEach((a) => {
       a.addEventListener("click", () => {
-        tag.classList.add("clicked");
+        if (!clickable) return;
+        tag.classList.remove("hover");
         curr.innerText = a.innerText;
         const val = a.getAttribute("data-value");
         if (!id) return;
@@ -27,7 +34,6 @@ document.querySelectorAll("#search-tags > .select").forEach((tag) => {
         window.location.search = url.search;
       });
     });
-  tag.addEventListener("pointerout", () => void tag.classList.remove("clicked"));
 });
 
 if (window.location.search) {
@@ -36,7 +42,7 @@ if (window.location.search) {
   document.querySelectorAll("#search-tags > .select").forEach((tag) => {
     const id = tag.getAttribute("data-id");
     const param = id && url.searchParams.get(id);
-    const val = tag.querySelector<HTMLSpanElement>(`.content [data-value="${param}"]`);
+    const val = tag.querySelector<HTMLSpanElement>(`.options [data-value="${param}"]`);
     const curr = val && tag.querySelector<HTMLSpanElement>(".current");
     if (curr) curr.innerText = val.innerText;
   });

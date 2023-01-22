@@ -84,27 +84,28 @@ iframe {
 }
 .select {
   z-index: 1;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, max-height 0.2s ease-in-out;
+  max-height: 2em;
+  overflow: hidden;
+}
+.select.hover {
+  max-height: 25em;
 }
 .select .current::after {
   content: "⯆";
 }
-.select:hover:not(.clicked) .current {
+.select.hover .current {
   display: none;
 }
-.select .content {
-  display: none;
-}
-.select:hover:not(.clicked) .content {
+.select a {
   display: block;
-}
-.select .content a {
-  display: block;
-  height: auto;
   transition: text-indent 0.1s ease-in-out;
 }
-.select .content a:hover {
+.select a:hover {
   text-indent: 10px;
+}
+.select:not(.hover) .options a {
+  display: none;
 }
 section {
   margin-top: 25px;
@@ -118,6 +119,14 @@ section {
 }
 .disabled {
   display: none !important;
+}
+@keyframes expand {
+  0% {
+    max-height: 2em;
+  }
+  100% {
+    max-height: 25em;
+  }
 }
 
 header {
