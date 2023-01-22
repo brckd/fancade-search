@@ -112,6 +112,11 @@ section {
   margin-bottom: 25px;
   transition: all 0.3s ease-in-out, color 0s;
 }
+.alert {
+  position: sticky;
+  top: 6em;
+  z-index: 10;
+}
 .hidden {
   position: absolute !important;
   top: -9999px !important;
