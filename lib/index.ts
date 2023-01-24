@@ -53,7 +53,7 @@ if (game) {
   const gameSection = document.getElementById("game-section");
   const gameIframe = document.getElementById("game-iframe");
   gameSection?.classList.remove("disabled");
-  gameIframe?.setAttribute("src", `https://play.fancade.com/${game}`);
+  gameIframe?.setAttribute("src", `https://play.fancade.com/${game}?ar_w=16&ar_h=9`);
 } else if (window.location.search) {
   document.getElementById("search-results-section")?.classList.remove("disabled");
 }
