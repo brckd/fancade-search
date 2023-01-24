@@ -8,7 +8,7 @@
 }
 body {
   font-family: "Baloo 2";
-  color: #424252;
+  color: #1c1c28;
   margin-top: 0;
   margin-bottom: 0;
   scroll-behavior: smooth;
@@ -20,6 +20,12 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #acafc2;
   border-radius: 10px;
+}
+::-webkit-resizer {
+  width: 5px;
+  height: 5px;
+  background-color: #acafc2;
+  border-radius: 100% 5px 10px 5px;
 }
 h1 {
   all: unset;
@@ -75,7 +81,7 @@ iframe {
   line-height: 2em;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.1s ease-out, color 0;
+  transition: all 0.1s ease-out, color 0s;
 }
 .button:hover,
 .select:hover {
@@ -142,6 +148,41 @@ section {
     max-height: 25em;
   }
 }
+.input {
+  all: unset;
+  width: 100%;
+  padding-left: 10px;
+}
+.input::placeholder {
+  color: #696b7c;
+}
+.border {
+  border: 3px solid #696b7c;
+  border-radius: 10px;
+}
+.submit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.submit .button {
+  height: 50px;
+  line-height: 55px;
+  padding: 0px 20px;
+  border-radius: 7px;
+}
+.submit .button::after {
+  content: "";
+  display: inline-block;
+  height: 0.8em;
+  width: 1.1em;
+  background-image: url("../img/arrow.png");
+  background-size: cover;
+  filter: var(--1c1c28);
+}
+.submit .button:hover::after {
+  filter: brightness(100%);
+}
 
 header {
   color: #696b7c;
@@ -162,7 +203,7 @@ header {
   height: 3rem;
   transition: width 0.3s, height 0.3s, outline 0.3s;
 }
-#nav-return * {
+#nav-return img {
   height: 100%;
   border-radius: 20%;
   outline: 5px solid #696b7c;
@@ -180,43 +221,14 @@ header {
   justify-content: center;
   gap: 20px 20px;
 }
-#search-return * {
+#search-return img {
   width: 50vw;
   outline: 10px solid #696b7c;
   outline-offset: -1px;
   border-radius: 50%;
 }
 #search-ctx {
-  vertical-align: middle;
   max-width: 100%;
-}
-#search-bar {
-  height: 50px;
-  border: 3px solid #696b7c;
-  border-radius: 10px;
-  display: flex;
-}
-#search-input {
-  all: unset;
-  width: 100%;
-  height: 100%;
-  text-indent: 10px;
-}
-#search-input::placeholder {
-  color: #696b7c;
-}
-#search-btn {
-  line-height: 50px;
-  padding: 0px 20px;
-  border-radius: 7px;
-}
-#search-btn img {
-  display: inline;
-  height: 0.8em;
-  filter: var(--1c1c28);
-}
-#search-btn:hover img {
-  filter: brightness(100%);
 }
 #search-tags {
   display: flex;
@@ -227,14 +239,14 @@ header {
   overflow: visible;
   flex-wrap: wrap;
 }
-.small #circle {
-  height: 50px;
+.small#search-section {
+  flex-direction: row;
+}
+.small #search-return img {
+  height: 5em;
   width: auto;
   border-radius: 20%;
   outline-width: 5px;
-}
-.small #search-ctx {
-  width: 30%;
 }
 @media (orientation: landscape) {
   #search-section {
@@ -243,7 +255,7 @@ header {
   #search-tags {
     height: 3em;
   }
-  #search-return * {
+  #search-return img {
     height: 5em;
     width: auto;
     border-radius: 20%;
@@ -257,10 +269,9 @@ header {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   gap: 20px 50px;
-  overflow: scroll;
 }
 .card {
   color: #696b7c;
@@ -337,8 +348,68 @@ header {
   }
 }
 
+#game-ctx {
+  min-width: 70%;
+}
 #game-iframe {
   aspect-ratio: 16 / 9;
+}
+#game-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-top: 5px;
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+#game-row [data-id="play"]::after {
+  content: "";
+  display: inline-block;
+  height: 0.9em;
+  width: 1em;
+  background-image: url("../img/open.png");
+  background-size: cover;
+  filter: var(--696b7c);
+  margin-left: 1ex;
+}
+#game-row [data-id="likes"]::after {
+  content: "";
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  background-image: url("../img/like.png");
+  background-size: cover;
+  filter: var(--696b7c);
+  margin-left: 1ex;
+}
+#game-row .button:hover::after {
+  filter: brightness(100%);
+}
+#game-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.comment {
+  display: grid;
+  justify-content: left;
+}
+.comment .avatar {
+  grid-column: 1 / 1;
+  grid-row: 1 / 3;
+  height: 3rem;
+  transition: width 0.3s, height 0.3s, outline 0.3s;
+  border: 5px solid #696b7c;
+  border-radius: 20%;
+  margin-right: 10px;
+}
+.comment .name {
+  color: #696b7c;
+  grid-column: 2 / 2;
+}
+.comment .content {
+  grid-column: 2 / 2;
 }
 
 footer {

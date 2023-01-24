@@ -31,9 +31,9 @@
         <h2 class="hidden" id="search"><a href="#search">Search</a></h2>
         <a id="search-return" href="."><img src="img/icon.png" /></a>
         <div id="search-ctx">
-          <div id="search-bar">
-            <input type="text" id="search-input" placeholder="Search Games..." />
-            <a class="button" id="search-btn"><img class="inline" src="img/arrow.png" /></a>
+          <div class="submit border" id="search-bar">
+            <input type="text" class="input" id="search-input" placeholder="Search Games..." />
+            <a class="button" id="search-btn"></a>
           </div>
           <div id="search-tags">
             <span class="select" data-id="genre">
@@ -101,7 +101,29 @@
       </section>
       <section class="blob disabled" id="game-section">
         <h2 id="game"><a href="#game">Game</a></h2>
-        <iframe id="game-iframe" src="" frameborder="0" title=""></iframe>
+        <div id="game-ctx">
+          <iframe id="game-iframe" frameborder="0"></iframe>
+          <div id="game-row">
+            <a class="button" data-id="play">39.6k</a>
+            <a class="button" data-id="likes">146</a>
+          </div>
+          <div id="game-comments">
+            <div class="submit" id="comment-bar">
+              <textarea class="input border" id="comment-input" placeholder="Add a comment..." rows="1"></textarea>
+              <a class="button" id="comment-btn"></a>
+            </div>
+            <div class="comment">
+              <img class="avatar" src="img/games/615999797E89CDC8.webp" />
+              <div class="name">UwUfier45</div>
+              <div class="content">I really like this game!</div>
+            </div>
+            <div class="comment">
+              <img class="avatar" src="img/games/615999797E89CDC8.webp" />
+              <div class="name">Random Dude</div>
+              <div class="content">Hello mom! 👋</div>
+            </div>
+          </div>
+        </div>
       </section>
       <section class="blob disabled" id="search-results-section">
         <h2 id="search-results"><a href="#search-results">Search Results</a></h2>

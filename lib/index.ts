@@ -2,8 +2,13 @@ const url = new URL(window.location.href);
 const query = url.searchParams.get("q");
 const game = url.searchParams.get("g");
 
+const searchSection = document.getElementById("search-section");
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const searchBtn = document.getElementById("search-btn") as HTMLButtonElement;
+const gameSection = document.getElementById("game-section");
+const gameIframe = document.getElementById("game-iframe");
+const gameRow = document.getElementById("game-row");
+const searchResultsSection = document.getElementById("search-results-section");
 
 searchInput.addEventListener("keypress", (e) => e.key === "Enter" && search());
 searchBtn.addEventListener("click", search);
@@ -49,14 +54,15 @@ if (query) searchInput.value = query;
 
 if (window.location.search) {
   document.querySelectorAll(".blob").forEach((b) => b.classList.add("disabled"));
+  searchSection?.classList.add("small");
 }
 if (game) {
-  const gameSection = document.getElementById("game-section");
-  const gameIframe = document.getElementById("game-iframe");
   gameSection?.classList.remove("disabled");
-  gameIframe?.setAttribute("src", `https://play.fancade.com/${game}?ar_w=16&ar_h=9`);
+  const gameUrl = `https://play.fancade.com/${game}`;
+  gameIframe?.setAttribute("src", `${gameUrl}?ar_w=16&ar_h=9`);
+  gameRow?.querySelector('[data-id="play"]')?.setAttribute("href", gameUrl);
 } else if (window.location.search) {
-  document.getElementById("search-results-section")?.classList.remove("disabled");
+  searchResultsSection?.classList.remove("disabled");
 }
 
 function canBeGameGuid(str: string) {
