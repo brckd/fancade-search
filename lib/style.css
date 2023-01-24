@@ -237,7 +237,7 @@ header {
   width: 30%;
 }
 @media (orientation: landscape) {
-  .search {
+  #search-section {
     flex-direction: row;
   }
   #search-tags {
