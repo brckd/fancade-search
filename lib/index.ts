@@ -5,7 +5,7 @@ const game = url.searchParams.get("g");
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const searchBtn = document.getElementById("search-btn") as HTMLButtonElement;
 
-searchInput.addEventListener("change", search);
+searchInput.addEventListener("keypress", (e) => e.key === "Enter" && search());
 searchBtn.addEventListener("click", search);
 function search() {
   url.searchParams.set("q", searchInput.value);
