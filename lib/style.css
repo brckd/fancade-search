@@ -260,7 +260,7 @@ header {
 #search-tags [data-id="by"] input::placeholder {
   color: #1c1c28;
 }
-#search-tags [data-id="by"] input:hover::placeholder {
+#search-tags [data-id="by"]:hover input::placeholder {
   color: #fff;
 }
 .small#search-section {
