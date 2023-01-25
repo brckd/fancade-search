@@ -358,6 +358,9 @@ header {
 
 #game-ctx {
   min-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 #game-iframe {
   aspect-ratio: 16 / 9;
@@ -367,7 +370,6 @@ header {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 5px;
-  margin-top: 5px;
   flex-wrap: wrap;
 }
 #game-row [data-id="play"]::after {
