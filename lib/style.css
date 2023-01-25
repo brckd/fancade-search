@@ -247,6 +247,22 @@ header {
   overflow: visible;
   flex-wrap: wrap;
 }
+#search-tags [data-id="by"]::before {
+  content: "By ";
+}
+#search-tags [data-id="by"] input {
+  all: unset;
+  font-family: "Baloo 2";
+  font-size: medium;
+  outline: unset;
+  width: 140px;
+}
+#search-tags [data-id="by"] input::placeholder {
+  color: #1c1c28;
+}
+#search-tags [data-id="by"] input:hover::placeholder {
+  color: #fff;
+}
 .small#search-section {
   flex-direction: row;
 }

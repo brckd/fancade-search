@@ -5,6 +5,8 @@ const game = url.searchParams.get("g");
 const searchSection = document.getElementById("search-section");
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const searchBtn = document.getElementById("search-btn") as HTMLButtonElement;
+const searchTags = document.getElementById("search-tags");
+const byTag = searchTags?.querySelector('[data-id="by"]');
 const gameSection = document.getElementById("game-section");
 const gameIframe = document.getElementById("game-iframe");
 const gameRow = document.getElementById("game-row");
@@ -14,14 +16,19 @@ const highlightsSection = document.getElementById("highlights-section");
 searchInput.addEventListener("keypress", (e) => e.key === "Enter" && search());
 searchBtn.addEventListener("click", search);
 function search() {
-  url.searchParams.set("q", searchInput.value);
+  if (searchInput.value) url.searchParams.set("q", searchInput.value);
+  else url.searchParams.delete("q");
   url.searchParams.delete("g");
   window.location.search = url.search;
 }
 
+if (query) searchInput.value = query;
 document.querySelectorAll<HTMLSpanElement>("#search-tags > .select").forEach((tag) => {
   const id = tag.getAttribute("data-id");
+  const param = id && url.searchParams.get(id);
+  const val = tag.querySelector<HTMLSpanElement>(`.options [data-value="${param}"]`);
   const curr = tag.querySelector<HTMLSpanElement>(".current");
+  if (curr && val) curr.innerText = val.innerText;
   let clickable = false;
   tag.addEventListener("mouseenter", () => {
     tag.classList.add("hover");
@@ -38,20 +45,22 @@ document.querySelectorAll<HTMLSpanElement>("#search-tags > .select").forEach((ta
       if (!id) return;
       if (val) url.searchParams.set(id, val);
       else url.searchParams.delete(id);
-      url.searchParams.sort();
       window.location.search = url.search;
     });
   });
 });
 
-document.querySelectorAll("#search-tags > .select").forEach((tag) => {
-  const id = tag.getAttribute("data-id");
-  const param = id && url.searchParams.get(id);
-  const val = tag.querySelector<HTMLSpanElement>(`.options [data-value="${param}"]`);
-  const curr = val && tag.querySelector<HTMLSpanElement>(".current");
-  if (curr) curr.innerText = val.innerText;
-});
-if (query) searchInput.value = query;
+{
+  const param = url.searchParams.get("by");
+  const input = byTag?.querySelector<HTMLInputElement>("input");
+  if (input && param) input.value = param;
+  input?.addEventListener("keypress", (e) => {
+    if (e.key !== "Enter") return;
+    if (input.value) url.searchParams.set("by", input.value);
+    else url.searchParams.delete("by");
+    window.location.search = url.search;
+  });
+}
 
 if (!window.location.search) {
   highlightsSection?.classList.remove("disabled");
