@@ -9,6 +9,7 @@ const gameSection = document.getElementById("game-section");
 const gameIframe = document.getElementById("game-iframe");
 const gameRow = document.getElementById("game-row");
 const searchResultsSection = document.getElementById("search-results-section");
+const highlightsSection = document.getElementById("highlights-section");
 
 searchInput.addEventListener("keypress", (e) => e.key === "Enter" && search());
 searchBtn.addEventListener("click", search);
@@ -52,8 +53,9 @@ document.querySelectorAll("#search-tags > .select").forEach((tag) => {
 });
 if (query) searchInput.value = query;
 
-if (window.location.search) {
-  document.querySelectorAll(".blob").forEach((b) => b.classList.add("disabled"));
+if (!window.location.search) {
+  highlightsSection?.classList.remove("disabled");
+} else {
   searchSection?.classList.add("small");
 }
 if (game) {
