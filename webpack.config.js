@@ -2,30 +2,52 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { resolve } = require("path");
 
+/** @type {HtmlWebpackPlugin.Options} */
+const templateOptions = {
+  title: "Fancade Search",
+  scriptLoading: "module",
+  meta: {
+    "og:image": "src/img/icon.png",
+    "og:url": "https://brycked.github.io/fancade-search",
+    "og:title": "Search through a world of games! Or submit your own?",
+    "og:description": (description =
+      "Fancade search is a huge collection of Fancade games. Search them instantly, or submit your own games!"),
+    description,
+  },
+  favicon: "src/img/icon.png",
+};
+
 /** @type { import("webpack").Configuration } */
 module.exports = {
-  entry: "./src/index.ts",
+  entry: {
+    shared: "./src/shared/index.ts",
+    home: "./src/home/index.ts",
+    search: "./src/search/index.ts",
+    game: "./src/game/index.ts",
+  },
   output: {
     path: resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].js",
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      title: "Fancade Search",
+      ...templateOptions,
       filename: "index.html",
-      template: "src/index.ejs",
-      scriptLoading: "module",
-      meta: {
-        description:
-          "Fancade search is a huge collection of Fancade games. Search them instantly, or submit your own games!",
-        "og:image": "src/img/icon.png",
-        "og:url": "https://brycked.github.io/fancade-search",
-        "og:title": "Search through a world of games! Or submit your own?",
-        "og:description":
-          "Fancade search is a huge collection of Fancade games. Search them instantly, or submit your own games!",
-      },
-      favicon: "src/img/icon.png",
+      template: "src/home/index.ejs",
+      chunks: ["shared", "home"],
+    }),
+    new HtmlWebpackPlugin({
+      ...templateOptions,
+      filename: "search/index.html",
+      template: "src/search/index.ejs",
+      chunks: ["shared", "search"],
+    }),
+    new HtmlWebpackPlugin({
+      ...templateOptions,
+      filename: "game/index.html",
+      template: "src/game/index.ejs",
+      chunks: ["shared", "game"],
     }),
   ],
   module: {

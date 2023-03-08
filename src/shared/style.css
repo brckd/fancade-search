@@ -52,7 +52,7 @@ h2::before {
   display: inline-block;
   height: 1em;
   width: 1em;
-  background-image: url("img/wreath.png");
+  background-image: url("../img/wreath.png");
   background-size: cover;
   margin-right: 0.5ex;
 }
@@ -61,7 +61,7 @@ h2::after {
   display: inline-block;
   height: 1em;
   width: 1em;
-  background-image: url("img/wreath.png");
+  background-image: url("../img/wreath.png");
   background-size: cover;
   transform: rotateY(180deg);
   margin-left: 0.5ex;
@@ -113,7 +113,7 @@ iframe {
   display: inline-block;
   height: 0.55em;
   width: 1em;
-  background-image: url("img/expand.png");
+  background-image: url("../img/expand.png");
   background-size: cover;
   filter: var(--acafc2);
   margin-left: 1ex;
@@ -145,9 +145,6 @@ section {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
-}
-.disabled {
-  display: none !important;
 }
 @keyframes expand {
   0% {
@@ -186,7 +183,7 @@ section {
   display: inline-block;
   height: 0.8em;
   width: 1.1em;
-  background-image: url("img/arrow.png");
+  background-image: url("../img/arrow.png");
   background-size: cover;
   filter: var(--1c1c28);
 }
@@ -350,7 +347,7 @@ header {
   display: inline-block;
   height: 1em;
   width: 1em;
-  background-image: url("img/play.png");
+  background-image: url("../img/play.png");
   background-size: cover;
   filter: var(--696b7c);
   margin-left: 1ex;
@@ -360,7 +357,7 @@ header {
   display: inline-block;
   height: 1em;
   width: 1em;
-  background-image: url("img/like.png");
+  background-image: url("../img/like.png");
   background-size: cover;
   filter: var(--acafc2);
   margin-left: 1ex;
@@ -395,7 +392,7 @@ header {
   display: inline-block;
   height: 0.9em;
   width: 1em;
-  background-image: url("img/open.png");
+  background-image: url("../img/open.png");
   background-size: cover;
   filter: var(--696b7c);
   margin-left: 1ex;
@@ -405,7 +402,7 @@ header {
   display: inline-block;
   height: 1em;
   width: 1em;
-  background-image: url("img/like.png");
+  background-image: url("../img/like.png");
   background-size: cover;
   filter: var(--696b7c);
   margin-left: 1ex;
