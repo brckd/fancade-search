@@ -1,3 +1,5 @@
+import "./style.css";
+
 const url = new URL(window.location.href);
 const query = url.searchParams.get("q");
 const game = url.searchParams.get("g");
