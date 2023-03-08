@@ -14,7 +14,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Fancade Search",
       filename: "index.html",
-      template: "src/index.html",
+      template: "src/index.ejs",
       scriptLoading: "module",
       meta: {
         description:
