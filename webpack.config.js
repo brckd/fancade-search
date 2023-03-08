@@ -7,14 +7,12 @@ const templateOptions = {
   title: "Fancade Search",
   scriptLoading: "module",
   meta: {
-    "og:image": "src/assets/icon.png",
     "og:url": "https://brycked.github.io/fancade-search",
     "og:title": "Search through a world of games! Or submit your own?",
     "og:description": (description =
       "Fancade search is a huge collection of Fancade games. Search them instantly, or submit your own games!"),
     description,
   },
-  favicon: "src/assets/icon.png",
 };
 
 /** @type { import("webpack").Configuration } */

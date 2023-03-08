@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="<%= require('../assets/icon.png') %>" />
+    <meta name="og:image" content="<%= require('../assets/icon.png') %>" />
   </head>
 
   <body>
     <header>
-      <a id="nav-return" href="."><img src="img/icon.png" /></a>
+      <a id="nav-return" href="."><img src="<%= require('../assets/icon.png') %>" /></a>
       <h1>Fancade Search</h1>
       <nav id="navbar"></nav>
     </header>
@@ -16,7 +18,7 @@
       <noscript class="blob alert">This page requires JavaScript in order to work!</noscript>
       <section id="search-section">
         <h2 class="hidden" id="search"><a href="#search">Search</a></h2>
-        <a id="search-return" href="."><img src="img/icon.png" /></a>
+        <a id="search-return" href="."><img src="<%= require('../assets/icon.png') %>" /></a>
         <div id="search-ctx">
           <div class="submit border" id="search-bar">
             <input type="text" class="input" id="search-input" placeholder="Search Games..." />
@@ -92,12 +94,12 @@
               <a class="button" id="comment-btn"></a>
             </div>
             <div class="comment">
-              <img class="avatar" src="img/games/615999797E89CDC8.webp" />
+              <img class="avatar" src="https://www.fancade.com/images/615999797E89CDC8.jpg" />
               <div class="name">UwUfier45</div>
               <div class="content">I really like this game!</div>
             </div>
             <div class="comment">
-              <img class="avatar" src="img/games/615999797E89CDC8.webp" />
+              <img class="avatar" src="https://www.fancade.com/images/615999797E89CDC8.jpg" />
               <div class="name">Random Dude</div>
               <div class="content">Hello mom! 👋</div>
             </div>
@@ -106,7 +108,7 @@
         <div id="game-suggestions">
           <h3 id="suggestions"><a href="#suggestions">More like this</a></h3>
           <a class="card" href="?g=615999797E89CDC8">
-            <img src="img/games/615999797E89CDC8.webp" loading="lazy" />
+            <img src="https://www.fancade.com/images/615999797E89CDC8.jpg" loading="lazy" />
             <div>
               <div class="title">Snek Left</div>
               <div class="clicks">39.6K</div>
@@ -115,7 +117,7 @@
             </div>
           </a>
           <a class="card" href="?g=615999797E89CDC8">
-            <img src="img/games/615999797E89CDC8.webp" loading="lazy" />
+            <img src="https://www.fancade.com/images/615999797E89CDC8.jpg" loading="lazy" />
             <div>
               <div class="title">Snek Left</div>
               <div class="clicks">39.6K</div>
@@ -124,7 +126,7 @@
             </div>
           </a>
           <a class="card" href="?g=615999797E89CDC8">
-            <img src="img/games/615999797E89CDC8.webp" loading="lazy" />
+            <img src="https://www.fancade.com/images/615999797E89CDC8.jpg" loading="lazy" />
             <div>
               <div class="title">Snek Left</div>
               <div class="clicks">39.6K</div>
